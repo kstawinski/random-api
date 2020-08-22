@@ -1,17 +1,24 @@
 <script>
+import Card from './components/Card.svelte';
 import Button from './components/Button.svelte';
 
+let showAPI = false;
+
 const handleClick = () => {
-	alert('clicked');
+	showAPI = !showAPI;
 };
 </script>
 
-<main>
+<main class="home">
+	{#if showAPI}
+		<Card />
+	{/if}
+
 	<Button text="Get random API  🎲" on:click={handleClick}/>
 </main>
 
 <style type="text/scss">
-main {
+.home {
 	display: flex;
 	width: 100vw;
 	height: 100vh;

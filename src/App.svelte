@@ -15,6 +15,7 @@ const handleClick = () => {
 	{/if}
 
 	<Button text="Get random API  🎲" on:click={handleClick}/>
+	<Button text="Search  🔍" type="secondary" />
 </main>
 
 <style type="text/scss">

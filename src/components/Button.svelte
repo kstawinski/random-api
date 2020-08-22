@@ -2,7 +2,7 @@
 export let text;
 </script>
 
-<button class="button">
+<button class="button" on:click>
 {text}
 </button>
 

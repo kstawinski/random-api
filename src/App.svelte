@@ -1,9 +1,13 @@
 <script>
 import Button from './components/Button.svelte';
+
+const handleClick = () => {
+	alert('clicked');
+};
 </script>
 
 <main>
-	<Button text="Get random API  🎲" />
+	<Button text="Get random API  🎲" on:click={handleClick}/>
 </main>
 
 <style type="text/scss">

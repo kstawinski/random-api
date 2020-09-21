@@ -32,19 +32,22 @@ const handleClick = () => {
 </script>
 
 <main class="home">
-	<Button text="Random API" on:click={handleClick}/>
+	<div>
+		{#if showAPI}
+			<Card data={API} />
+		{/if}
 
-	{#if showAPI}
-		<Card data={API} />
-	{/if}
+		<Button text="Random API" on:click={handleClick}/>
+	</div>
 </main>
 
 <style type="text/scss">
 .home {
-	// display: flex;
-	// width: 100vw;
-	// height: 100vh;
-	// align-items: flex-end;
-	// justify-content: center;
+	display: flex;
+	width: 60vw;
+	height: 100vh;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: center;
 }
 </style>

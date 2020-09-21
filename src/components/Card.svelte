@@ -9,17 +9,23 @@ export let data;
   <div class="card__details">
     <input type="checkbox" checked={ data.HTTPS === true } disabled> HTTPS <br />
     <input type="checkbox" checked={ data.Cors === 'yes' } disabled> Cors <br />
-    <div>[ { data.Category } ]</div>
+    <div>Category: { data.Category }</div>
     <a href={data.Link} class="card__link" target="_blank">{data.Link}</a>
   </div>
 </article>
 
 <style type="text/scss">
 .card {
-  padding: 15px;
+  padding: 25px;
 
-  &__title {}
-  &__description {}
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  &__description {
+    margin: 5px 0 15px 0;
+    color: #3a3a3a;
+  }
   &__link {}
 }
 </style>

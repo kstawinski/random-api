@@ -19,7 +19,7 @@ const createClass = (type) => `button__${type}`;
   cursor: pointer;
   transition: opacity .3s, transform .2s;
   outline: 0;
-  width: 100%;
+  min-width: 60vw;
 
   &:hover {
     opacity: .85;

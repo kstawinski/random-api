@@ -1,28 +1,20 @@
 <script>
+export let data;
 </script>
 
 <article class="card">
-  <h2 class="card__title">Currenciery</h2>
-  <p class="card__description">Exchange rates and currency conversion</p>
+  <h2 class="card__title">{data.API}</h2>
+  <p class="card__description">{data.Description}</p>
 
-  <a href="#" class="card__link">www.currencylayer.com</a>
+  <a href={data.Link} class="card__link" target="_blank">{data.Link}</a>
 </article>
 
 <style type="text/scss">
 .card {
-  background: rgba(#000, 0.05);
-  width: 100vw;
-  padding: 30px 40px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding: 15px;
 
   &__title {}
-  &__description {
-    font-size: 1.1em;
-    color: #4c4c4c;
-    margin: 5px 0 15px 0;
-  }
+  &__description {}
   &__link {}
 }
 </style>

@@ -14,11 +14,12 @@ const createClass = (type) => `button__${type}`;
   font-size: 16px;
   border: 0;
   font-weight: 500;
-  padding: 15px 20px;
+  padding: 35px 20px;
   box-shadow: 0 0 15px rgba(#000, 0.1);
   cursor: pointer;
   transition: opacity .3s, transform .2s;
   outline: 0;
+  width: 100%;
 
   &:hover {
     opacity: .85;

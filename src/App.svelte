@@ -4,14 +4,25 @@ import Button from './components/Button.svelte';
 import axios from 'axios';
 
 let showAPI = false;
-const API = 'https://api.publicapis.org';
+const _API = 'https://api.publicapis.org';
+
+let API = {};
 
 const handleClick = () => {
-	axios.get(`${API}/random?auth=null`)
+	axios.get(`${_API}/random?auth=null`)
 		.then((answer) => {
 			// handle success
 			const response = answer.data.entries[0];
+
+			// save response to API object
+			API = response;
+
+			// show card
+			showAPI = true;
+
 			console.log(response);
+			console.log('obiekt api:');
+			console.log(API);
 		})
 		.catch((error) => {
 			// handle error
@@ -21,20 +32,19 @@ const handleClick = () => {
 </script>
 
 <main class="home">
-	{#if showAPI}
-		<Card />
-	{/if}
+	<Button text="Random API" on:click={handleClick}/>
 
-	<Button text="Get random API  🎲" on:click={handleClick}/>
-	<Button text="Search  🔍" type="secondary" />
+	{#if showAPI}
+		<Card data={API} />
+	{/if}
 </main>
 
 <style type="text/scss">
 .home {
-	display: flex;
-	width: 100vw;
-	height: 100vh;
-	align-items: center;
-	justify-content: center;
+	// display: flex;
+	// width: 100vw;
+	// height: 100vh;
+	// align-items: flex-end;
+	// justify-content: center;
 }
 </style>

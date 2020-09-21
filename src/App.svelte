@@ -1,11 +1,22 @@
 <script>
 import Card from './components/Card.svelte';
 import Button from './components/Button.svelte';
+import axios from 'axios';
 
 let showAPI = false;
+const API = 'https://api.publicapis.org';
 
 const handleClick = () => {
-	showAPI = !showAPI;
+	axios.get(`${API}/random?auth=null`)
+		.then((answer) => {
+			// handle success
+			const response = answer.data.entries[0];
+			console.log(response);
+		})
+		.catch((error) => {
+			// handle error
+			console.log(error);
+		});
 };
 </script>
 

@@ -14,16 +14,16 @@ const createClass = (type) => `button__${type}`;
   font-size: 16px;
   border: 0;
   font-weight: 500;
-  padding: 35px 20px;
+  padding: 20px 12px;
   box-shadow: 0 0 15px rgba(#000, 0.1);
   cursor: pointer;
   transition: opacity .3s, transform .2s;
   outline: 0;
-  min-width: 60vw;
+  width: 100%;
 
-  &:hover {
-    opacity: .85;
-  }
+  // &:hover {
+  //   opacity: .85;
+  // }
   &:active {
     transform: scale(0.95);
   }

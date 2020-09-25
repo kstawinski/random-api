@@ -23,12 +23,13 @@ const createClass = (type) => `button__${type}`;
   font-size: 16px;
   border: 0;
   font-weight: 500;
-  padding: 20px 12px;
+  padding: 16px 12px;
   box-shadow: 0 0 15px rgba(#000, 0.1);
   cursor: pointer;
   transition: opacity .3s, transform .2s;
   outline: 0;
   width: 100%;
+  border-radius: 4px;
 
   // &:hover {
   //   opacity: .85;
@@ -37,12 +38,12 @@ const createClass = (type) => `button__${type}`;
     transform: scale(0.95);
   }
   &__primary {
-    background: #000000;
+    background: #22224E;
     color: #FFFFFF;
   }
   &__secondary {
-    background: rgba(#000, 0.2);
-    color: rgba(#000, 0.9);
+    background: #459999;
+    color: #FFFFFF;
   }
   &__loading {
     animation: spin 0.3s linear infinite;

@@ -19,10 +19,6 @@ const handleClick = () => {
 
 			// show card
 			showAPI = true;
-
-			console.log(response);
-			console.log('obiekt api:');
-			console.log(API);
 		})
 		.catch((error) => {
 			// handle error

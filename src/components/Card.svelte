@@ -1,5 +1,10 @@
 <script>
 export let data;
+
+const urlFormat = (url) => {
+  const regex = /^https?:\/\/([^\/]+)(?:[\/,]|$)|^(.*)$/;
+  return url.match(regex)[1];
+}; 
 </script>
 
 <article class="card">
@@ -10,7 +15,7 @@ export let data;
     <input type="checkbox" checked={ data.HTTPS === true } disabled> HTTPS <br />
     <input type="checkbox" checked={ data.Cors === 'yes' } disabled> Cors <br />
     <div>Category: { data.Category }</div>
-    <a href={data.Link} class="card__link" target="_blank">{data.Link}</a>
+    <a href={data.Link} class="card__link" target="_blank">{ urlFormat(data.Link) }</a>
   </div>
 </article>
 

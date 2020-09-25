@@ -8,7 +8,7 @@ export let type = 'primary';
 const createClass = (type) => `button__${type}`;
 </script>
 
-<button class={'button ' + createClass(type)} on:click>
+<button class={'button ' + createClass(type)} on:click disabled={loading}>
   {#if loading}
     <div class="button__loading">
       <Loading />
@@ -46,6 +46,10 @@ const createClass = (type) => `button__${type}`;
   }
   &__loading {
     animation: spin 0.3s linear infinite;
+  }
+  &:disabled {
+    opacity: 0.9;
+    pointer-events: none;
   }
 }
 

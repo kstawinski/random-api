@@ -61,9 +61,10 @@ const getRandomAPI = () => {
 			</div>
 		<Button text="Search" />
 		<Button
-			text="Give me a random API"
+			text="Randomize API"
 			type="secondary"
-			on:click={getRandomAPI} loading={state.randomAPILoading}
+			on:click={getRandomAPI}
+			loading={state.randomAPILoading}
 		/>
 		</section>
 		<div>

@@ -1,6 +1,7 @@
 <script>
 import Card from './components/Card.svelte';
 import Button from './components/Button.svelte';
+import About from './components/About.svelte';
 import axios from 'axios';
 
 const _API = 'https://api.publicapis.org';
@@ -38,7 +39,7 @@ const getRandomAPI = () => {
 
 <main class="home">
 	<div class="container container__flex">
-		<section class="sidebar">
+		<section class="home__sidebar sidebar">
 			<label for="search" class="sidebar__label">Search query</label>
 			<input type="search" id="search" class="sidebar__input">
 
@@ -59,17 +60,19 @@ const getRandomAPI = () => {
 				<input type="checkbox" id="cors" class="sidebar__input">
 				<label for="cors" class="sidebar__label">Cors</label>
 			</div>
-		<Button text="Search" />
-		<Button
-			text="Randomize API"
-			type="secondary"
-			on:click={getRandomAPI}
-			loading={state.randomAPILoading}
-		/>
+			<Button text="Search" />
+			<Button
+				text="Randomize API"
+				type="secondary"
+				on:click={getRandomAPI}
+				loading={state.randomAPILoading}
+			/>
 		</section>
-		<div>
+		<div class="home__content">
 			{#if state.showAPI}
-				<Card data={fetchedAPI} />
+				 <Card data={fetchedAPI} />
+			{:else}
+				 <About />
 			{/if}
 		</div>
 	</div>
@@ -83,22 +86,28 @@ const getRandomAPI = () => {
 	margin: 0 auto;
 	align-items: center;
 	justify-content: center;
+
+	&__sidebar {
+		width: 30%;
+	}
+	&__content {
+		width: 60%;
+	}
 }
 
 .container {
-	width: 80%;
+	width: 60%;
 	margin: 0 auto;
 
 	&__flex {
 		display: flex;
-		justify-content: flex-start;
+		justify-content: space-between;
 	}
 }
 
 .sidebar {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	box-shadow: 0 10px 10px #ececec;
 	padding: 25px;
-	width: 20%;
 
 	&__label {
 		display: block;

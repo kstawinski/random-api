@@ -1,12 +1,21 @@
 <script>
+import Loading from 'svelte-material-icons/Loading.svelte';
+
 export let text;
+export let loading = false;
 export let type = 'primary';
 
 const createClass = (type) => `button__${type}`;
 </script>
 
 <button class={'button ' + createClass(type)} on:click>
-{text}
+  {#if loading}
+    <div class="button__loading">
+      <Loading />
+    </div>
+  {:else}
+    {text}
+  {/if}
 </button>
 
 <style type="text/scss">
@@ -34,6 +43,18 @@ const createClass = (type) => `button__${type}`;
   &__secondary {
     background: rgba(#000, 0.2);
     color: rgba(#000, 0.9);
+  }
+  &__loading {
+    animation: spin 0.3s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>

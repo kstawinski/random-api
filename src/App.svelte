@@ -3,22 +3,31 @@ import Card from './components/Card.svelte';
 import Button from './components/Button.svelte';
 import axios from 'axios';
 
-let showAPI = false;
 const _API = 'https://api.publicapis.org';
 
-let API = {};
+const state = {
+	showAPI: false,
+	randomAPILoading: false,
+};
 
-const handleClick = () => {
+let fetchedAPI = {};
+
+const getRandomAPI = () => {
+	state.randomAPILoading = true;
+
 	axios.get(`${_API}/random?auth=null`)
 		.then((answer) => {
 			// handle success
 			const response = answer.data.entries[0];
 
 			// save response to API object
-			API = response;
+			fetchedAPI = response;
 
 			// show card
-			showAPI = true;
+			state.showAPI = true;
+
+			// stop buttons loading
+			state.randomAPILoading = false;
 		})
 		.catch((error) => {
 			// handle error
@@ -50,12 +59,16 @@ const handleClick = () => {
 				<input type="checkbox" id="cors" class="sidebar__input">
 				<label for="cors" class="sidebar__label">Cors</label>
 			</div>
-		<Button text="Search" on:click={handleClick}/>
-		<Button text="Give me a random API" type="secondary" on:click={handleClick}/>
+		<Button text="Search" />
+		<Button
+			text="Give me a random API"
+			type="secondary"
+			on:click={getRandomAPI} loading={state.randomAPILoading}
+		/>
 		</section>
 		<div>
-			{#if showAPI}
-				<Card data={API} />
+			{#if state.showAPI}
+				<Card data={fetchedAPI} />
 			{/if}
 		</div>
 	</div>
